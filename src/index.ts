@@ -17,19 +17,10 @@ export const app = new Elysia().use(cors()).use(usersInfo);
 
 getUserById(app);
 
-// app.get("/api/user/profile", getProfile.use(authMiddleware));
-
-
 app.get("/", () => "سلام از Elysia 🚀");
 
-app.post("/login" , (c) => 
-  sendOtp(c)
-)
-app.post("/verify-otp" , (c) => 
-  verifyOtp(c)
-)
-
-// app.get("/balance" ,getBalance)
+app.post("/login", (c) => sendOtp(c));
+app.post("/verify-otp", (c) => verifyOtp(c));
 
 app.listen(3005, () => {
   console.log("✅ سرور در حال اجراست روی http://localhost:3005");
@@ -38,7 +29,6 @@ app.listen(3005, () => {
 categoryRoutes(app);
 productRoutes(app);
 cartRoutes(app);
-// app.get("/food", () => {
 //   return `سلام صفحه ی غذا`;
 // });
 

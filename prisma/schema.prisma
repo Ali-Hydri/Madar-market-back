@@ -53,6 +53,7 @@ model Product {
   categoryId         Int
   category           Category   @relation(fields: [categoryId], references: [id])
   cartItems          CartItem[]
+  isSpecial          Boolean    @default(false)
 }
 
 model Cart {

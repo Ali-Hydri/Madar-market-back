@@ -37,6 +37,15 @@ const productRoutes = (app: Elysia) => {
     });
   });
 
+  // دریافت محصولات (با فیلتر دسته‌بندی و ویژه)
+  app.get("/api/products/special", async () => {
+    return await prisma.product.findMany({
+      where: { isSpecial: true },
+      include: { category: true },
+    });
+  });
+  
+
   return app;
 };
 
